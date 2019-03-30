@@ -28,14 +28,13 @@ public void add(E value){
   if (size==0){//special case
     start=new Node(value, null, null);
     end=start;
-    size++;
     }
   else{//for all the rest
     Node last = end;//saves penultimate value
     end=new Node(value, null, last);//sets up last element
     last.setNext(end);//bridges penultimate and last
-    size++;
     }
+    size++;
 }
     //add an element to the end of the list (the boolean would be true all the time if you want to conform to list standards)
 public void extend(MyLinkedList<E> other){

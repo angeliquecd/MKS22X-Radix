@@ -29,13 +29,13 @@ public void add(E value){
     start=new Node(value, null, null);
     end=start;
     size++;
-    return true;}
+    }
   else{//for all the rest
     Node last = end;//saves penultimate value
     end=new Node(value, null, last);//sets up last element
     last.setNext(end);//bridges penultimate and last
     size++;
-    return true;}
+    }
 }
     //add an element to the end of the list (the boolean would be true all the time if you want to conform to list standards)
 public void extend(MyLinkedList<E> other){
@@ -53,6 +53,7 @@ public E removeFront() {
   start=next;
   start.setPrev(null);
   size--;
+  return next.getData();
 }
   //  remove the 1st element of the list, and return that value.
   private class Node{
@@ -64,11 +65,11 @@ public E removeFront() {
         prev=prev1;
       }
       public Node(){
-        data=0;
+        data=null;
         next=null;
         prev=null;
       }
-      public int getData(){
+      public E getData(){
         return data;
       }
       private Node next(){
@@ -77,7 +78,7 @@ public E removeFront() {
       private Node prev(){
         return prev;
       }
-      public void setData(int data1){
+      public void setData(E data1){
         data=data1;
       }
       private void setNext (Node other){

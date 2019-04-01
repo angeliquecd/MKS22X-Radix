@@ -52,11 +52,19 @@ public void extend(MyLinkedList<E> other){
     return true;
   }
 public E removeFront() {
-  Node next = start.next();
+  E begin=start.getData();
+  if (size>1){Node next = start.next();
   start=next;
-  start.setPrev(null);
+  start.setPrev(null);}
+  else{
+    start= new Node();
+    end = start;
+  }
   size--;
-  return next.getData();
+  return begin;
+}
+public int size(){
+  return size;
 }
   //  remove the 1st element of the list, and return that value.
   private class Node{

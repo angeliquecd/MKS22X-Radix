@@ -12,22 +12,31 @@ public class Radix{
       if (a>largest) largest=a;
     }
     System.out.println("the linkedlist: "+result);
-    int n = 10;
-    while(largest%n!=largest){
-    while(result.hasNext()){
+    int n = 1;
+    while(largest>=n){
+      System.out.println(largest);
+      System.out.println(result.hasNext()+" "+result.size());
+      int passes=0;
+    while(passes<7){
       int workingwith = result.removeFront();
-      int index = (workingwith%n)/(n/10);
+      int place = n*10;
+      int index = (workingwith%place)/(n);
       System.out.println("working with: "+workingwith+" index:"+index);
       buckets[index].add(workingwith);
     //  System.out.println("size: "+result.size());
+    passes++;
     }
+    System.out.println("ended first loop");
     result=buckets[0];
     for (int i =1;i<20;i++){
       if (buckets[i].hasNext()){
-      result.extend(buckets[i]);}//reforms it into new linked list
+      result.extend(buckets[i]);
+    buckets[i].clear();}//reforms it into new linked list
     }
-    System.out.println("final result: "+result);
-  n*=10;}
+    System.out.println(result+"size: "+result.size());
+  n=n*10;
+}
+  System.out.println("final result: "+result);
   for (int i=0;i<data.length;i++){//copies final answer back into data
     data[i]=result.removeFront();
   }
@@ -40,8 +49,9 @@ public class Radix{
 }
 public static void debug(int[] data){
   for (int a: data){
-    System.out.print(a);
+    System.out.print(a+", ");
   }
+  System.out.println();
 }
 public static void main (String[] args){
   int[] data = {1,2,3,10,5,6,3};

@@ -47,6 +47,10 @@ public void extend(MyLinkedList<E> other){
     /* in O(1) time, connect the other list to the end of this list.
     The other list is then reset to size 0 (do not wipe out the nodes, just disconnect them.)
     This is how you will merge lists together for your radix sort.*/
+  public boolean hasNext(){
+    if (size==0) return false;
+    return true;
+  }
 public E removeFront() {
   Node next = start.next();
   start=next;

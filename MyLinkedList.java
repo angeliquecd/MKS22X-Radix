@@ -36,13 +36,24 @@ public void add(E value){
     }
     size++;
 }
+public E getNext(){
+  MyLinkedList<E> copy = this;
+  return copy.removeFront();
+}
     //add an element to the end of the list (the boolean would be true all the time if you want to conform to list standards)
 public void extend(MyLinkedList<E> other){
+  if (size==0) {
+    start=other.start;
+    end=other.end;
+    size=other.size;
+  }
+  else{
   end.setNext(other.start);
   other.start.setPrev(end);//links them
   end=other.end;//creates new end
   size+=other.size;//resets size
   other.size=0;//honestly not sure why it does this
+}
 }
     /* in O(1) time, connect the other list to the end of this list.
     The other list is then reset to size 0 (do not wipe out the nodes, just disconnect them.)

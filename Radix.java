@@ -40,15 +40,15 @@ public class Radix{
       System.out.println(i+": "+buckets[i]);
       if (buckets[i].hasNext()){//does negatives first
         System.out.println(true+""+i);
-      result.extend(buckets[i]);
-    buckets[i].clear();}//reforms it into new linked list while also clearing buckets
+      result.extend(buckets[i]);}
+  //  buckets[i].clear();}//reforms it into new linked list while also clearing buckets
   }
   System.out.println(result);
     for (int i=0;i<10;i++){
       System.out.println(i+": "+buckets[i]);
       if (buckets[i].hasNext()){
-      result.extend(buckets[i]);
-    buckets[i].clear();}//reforms it into new linked list while also clearing buckets
+      result.extend(buckets[i]);}
+  //  buckets[i].clear();}//reforms it into new linked list while also clearing buckets
     }
     System.out.println(result+"size: "+result.size());
   n=n*10;
@@ -73,7 +73,7 @@ public static void debug(int[] data){
   System.out.println();
 }
 public static void main (String[] args){
-  int[] data = {1,2,3,10,5,6,3, -5, -8};
+  int[] data = {1,2,3,10,5,6,3, -5, -8, -220,4300};
   radixsort(data);
   debug(data);
 }

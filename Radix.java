@@ -10,7 +10,7 @@ public class Radix{
       result.add(a);//creates the result linkedlist to begin with
       if (Math.abs(a)>largest) largest=Math.abs(a);//simultaneously figures out where to stop
     }
-    System.out.println("the linkedlist: "+result);
+  //  System.out.println("the linkedlist: "+result);
     int n = 1;//represents the place you're looking at
     while(largest>=n){//tells you where to start
   //    System.out.println(largest);
@@ -26,34 +26,34 @@ public class Radix{
       }
       int place = n*10;
       int index = (workingwith%place)/(n)+add;
-      System.out.println("working with: "+actual+" index:"+index);
+    //  System.out.println("working with: "+actual+" index:"+index);
       buckets[index].add(actual);//places stuff in buckets
     //  System.out.println("size: "+result.size());
     passes++;
     }
-    debug(buckets);
-    System.out.println("ended first loop");
+//    debug(buckets);
+  //  System.out.println("ended first loop");
     result=new MyLinkedList<Integer>();
-    System.out.println(result);
+  //  System.out.println(result);
     //copies back into linkedlist for next pass
     for (int i =19;i>9;i--){
-      System.out.println(i+": "+buckets[i]);
+  //    System.out.println(i+": "+buckets[i]);
       if (buckets[i].hasNext()){//does negatives first
-        System.out.println(true+""+i);
+    //    System.out.println(true+""+i);
       result.extend(buckets[i]);}
   //  buckets[i].clear();}//reforms it into new linked list while also clearing buckets
   }
-  System.out.println(result);
+  //System.out.println(result);
     for (int i=0;i<10;i++){//next does positives
-      System.out.println(i+": "+buckets[i]);
+  //    System.out.println(i+": "+buckets[i]);
       if (buckets[i].hasNext()){
       result.extend(buckets[i]);}
   //  buckets[i].clear();}//reforms it into new linked list while also clearing buckets
     }
-    System.out.println(result+"size: "+result.size());
+  //  System.out.println(result+"size: "+result.size());
   n=n*10;
 }
-  System.out.println("final result: "+result);
+//  System.out.println("final result: "+result);
   for (int i=0;i<data.length;i++){//copies final answer back into data
     data[i]=result.removeFront();
   }
